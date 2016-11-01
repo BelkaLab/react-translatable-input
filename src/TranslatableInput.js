@@ -100,9 +100,9 @@ class TranslatableInput extends Component {
       langOptions.unshift({ label: 'default', value: 'default' });
     }
 
-    let componentClasses = 'translatableInput';
+    let componentClasses = 'TranslatableInput';
     if (isFocused) {
-      componentClasses += ' focused';
+      componentClasses += ' is-focused';
     }
     if (typeof (classes) === 'string') {
       componentClasses += ` ${classes}`;
