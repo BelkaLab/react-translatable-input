@@ -1,0 +1,50 @@
+$borderRadius = 4px
+$langSelectWidth = 60px
+
+.translatableInput
+  border 1px solid #ccc
+  border-radius $borderRadius
+
+  .Select
+    display inline-block
+    width $langSelectWidth !important
+    margin 0
+    float left
+    .Select-control
+      height 35px
+      box-shadow none
+      border none
+      border-radius $borderRadius 0 0 $borderRadius
+    .Select-value
+      background-color #eee
+      height 100%
+      width 100%
+      border-right 1px solid #ccc
+      padding 8px 8px 8px 10px
+      .flag-icon
+        position absolute
+        top 50%
+        transform translateY(-50%)
+
+  input
+    display inline-block
+    margin 0
+    height 35px
+    width "calc(100% - %s)" % $langSelectWidth
+    border none
+    border-radius 0 $borderRadius $borderRadius 0
+    padding 0 10px
+    box-sizing border-box
+    &:disabled
+      background-color #f1f1f1
+
+  &.focused
+    border-color #08c #0099e6 #0099e6
+    box-shadow inset 0 1px 2px rgba(0,0,0,.1),0 0 5px -1px rgba(0,136,204,.5)
+
+  &.error
+    border-color #FF4F0D
+    box-shadow inset 0 1px 2px rgba(0,0,0,.1),0 0 5px -1px rgba(204, 0, 0, 0.5)
+
+  .flag-icon-default
+    background-image url(flag-default.svg)
