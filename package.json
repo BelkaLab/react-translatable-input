@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A ReactJS input component that manages multiple languages",
   "main": "lib/TranslatableInput.js",
+  "style": "dist/react-translatable-input.min.css",
   "scripts": {
     "clean": "rm -rf lib/ dist/",
     "build-all": "npm run build-style && npm run build-lib && npm run build-dist",
