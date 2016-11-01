@@ -1,4 +1,4 @@
-# React-yearly-calendar
+# React-translatable-input
 
 A [ReactJS](http://facebook.github.io/react/) input component that manages multiple languages.
 
@@ -29,9 +29,7 @@ TranslatableInput.propTypes = {
 
   placeholder: PropTypes.string,        // The placeholder to show when the input field is empty
   classes: PropTypes.string,            // Additional HTML classes to pass to the component
-  disabled: PropTypes.bool,             // Is the component disabled?
-  showLanguageName: PropTypes.bool,     // Show the language name label next to the flag?
-  langTranslator: PropTypes.func        // Translate iso langage codes to language names
+  disabled: PropTypes.bool              // Is the component disabled?
 };
 ```
 
