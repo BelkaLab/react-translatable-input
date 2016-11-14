@@ -1,5 +1,6 @@
 $borderRadius = 4px
 $langSelectWidth = 60px
+$langSelectWideWidth = 150px
 
 .TranslatableInput
   border 1px solid #ccc
@@ -15,16 +16,23 @@ $langSelectWidth = 60px
       box-shadow none
       border none
       border-radius $borderRadius 0 0 $borderRadius
+    .Select-option
+      position relative
+      min-height 35px
     .Select-value
       background-color #eee
       height 100%
       width 100%
       border-right 1px solid #ccc
       padding 8px 8px 8px 10px
-      .flag-icon
-        position absolute
-        top 50%
-        transform translateY(-50%)
+    .flag-icon
+      position absolute
+      top 50%
+      transform translateY(-60%)
+    .language-name
+      padding 0 10px 0 30px
+      overflow hidden
+      text-overflow ellipsis
 
   input
     display inline-block
@@ -48,3 +56,9 @@ $langSelectWidth = 60px
 
   .flag-icon-default
     background-image url(flag-default.svg)
+
+  &.has-language-name
+    .Select
+      width $langSelectWideWidth !important
+    input
+      width "calc(100% - %s)" % $langSelectWideWidth

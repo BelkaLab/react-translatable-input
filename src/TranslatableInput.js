@@ -69,11 +69,10 @@ class TranslatableInput extends Component {
             className="flag-icon flag-icon-default"
             title={option.value}
           />
-          { showLanguageName ? <div>{defaultName}</div> : null }
+          { showLanguageName ? <div className="language-name" title={defaultName}>{defaultName}</div> : null }
         </div>
       );
     }
-
 
     const langName = typeof (langTranslator) === 'function' ? langTranslator(option.value) : option.value;
     return (
@@ -82,17 +81,17 @@ class TranslatableInput extends Component {
           className={`flag-icon flag-icon-${option.value.split('-')[1].toLowerCase()}`}
           title={option.value}
         />
-        { showLanguageName ? <div>{langName}</div> : null }
+        { showLanguageName ? <div className="language-name" title={langName}>{langName}</div> : null }
       </div>
     );
   }
 
   render() {
-    const { values, lang, classes } = this.props;
+    const { values, lang, classes, showLanguageName } = this.props;
     const { isFocused } = this.state;
 
     const langOptions = Object.keys(values)
-        .filter(l => l.match(/[a-z]{2}-[a-z]{2}/i))
+        .filter(l => l.match(/^[a-z]{2,3}-[a-z]{2}$/i))
         .map(l => ({ label: l, value: l }));
 
     // put default language on top of the list, if present
@@ -103,6 +102,9 @@ class TranslatableInput extends Component {
     let componentClasses = 'TranslatableInput';
     if (isFocused) {
       componentClasses += ' is-focused';
+    }
+    if (showLanguageName) {
+      componentClasses += ' has-language-name';
     }
     if (typeof (classes) === 'string') {
       componentClasses += ` ${classes}`;
