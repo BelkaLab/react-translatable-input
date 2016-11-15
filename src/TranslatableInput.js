@@ -6,6 +6,7 @@ import 'flag-icon-css/css/flag-icon.min.css';
 const propTypes = {
   lang: PropTypes.string.isRequired,    // The current editing language
   values: PropTypes.object.isRequired,  // The object containing the translated strings
+  textarea: PropTypes.bool,             // Use a textarea for a multi-line input?
 
   onLanguageChange: PropTypes.func,     // Callback on language selection
   onValueChange: PropTypes.func,        // Callback on text entered
@@ -87,7 +88,7 @@ class TranslatableInput extends Component {
   }
 
   render() {
-    const { values, lang, classes, showLanguageName } = this.props;
+    const { values, lang, classes, showLanguageName, textarea } = this.props;
     const { isFocused } = this.state;
 
     const langOptions = Object.keys(values)
@@ -105,6 +106,9 @@ class TranslatableInput extends Component {
     }
     if (showLanguageName) {
       componentClasses += ' has-language-name';
+    }
+    if (textarea) {
+      componentClasses += ' uses-textarea';
     }
     if (typeof (classes) === 'string') {
       componentClasses += ` ${classes}`;
@@ -124,16 +128,30 @@ class TranslatableInput extends Component {
           onFocus={() => this.focused(true)}
           onBlur={() => this.focused(false)}
         />
-        <input
-          type="text"
-          value={values[lang]}
-          onChange={e => this.changeValue(e.target.value)}
-          onKeyDown={e => this.keyPressed(e)}
-          placeholder={this.props.placeholder}
-          disabled={this.props.disabled}
-          onFocus={() => this.focused(true)}
-          onBlur={() => this.focused(false)}
-        />
+        {
+          textarea ?
+            <textarea
+              type="text"
+              value={values[lang]}
+              onChange={e => this.changeValue(e.target.value)}
+              onKeyDown={e => this.keyPressed(e)}
+              placeholder={this.props.placeholder}
+              disabled={this.props.disabled}
+              onFocus={() => this.focused(true)}
+              onBlur={() => this.focused(false)}
+            />
+          :
+            <input
+              type="text"
+              value={values[lang]}
+              onChange={e => this.changeValue(e.target.value)}
+              onKeyDown={e => this.keyPressed(e)}
+              placeholder={this.props.placeholder}
+              disabled={this.props.disabled}
+              onFocus={() => this.focused(true)}
+              onBlur={() => this.focused(false)}
+            />
+        }
       </div>
     );
   }

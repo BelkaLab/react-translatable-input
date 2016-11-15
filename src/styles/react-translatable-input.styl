@@ -1,10 +1,11 @@
-$borderRadius = 4px
+$borderRadius = 5px
 $langSelectWidth = 60px
 $langSelectWideWidth = 150px
 
 .TranslatableInput
   border 1px solid #ccc
   border-radius $borderRadius
+  min-width 260px
 
   .Select
     display inline-block
@@ -29,10 +30,14 @@ $langSelectWideWidth = 150px
       position absolute
       top 50%
       transform translateY(-60%)
+      &:disabled
+        opacity .7
     .language-name
       padding 0 10px 0 30px
       overflow hidden
       text-overflow ellipsis
+      &:disabled
+        opacity .7
 
   input
     display inline-block
@@ -43,6 +48,21 @@ $langSelectWideWidth = 150px
     border-radius 0 $borderRadius $borderRadius 0
     padding 0 10px
     box-sizing border-box
+    outline none
+    &:disabled
+      background-color #f1f1f1
+
+  textarea
+    display block
+    margin 0
+    height 35px
+    width 100%
+    border none
+    border-radius 0  0 $borderRadius $borderRadius
+    padding 10px
+    box-sizing border-box
+    resize vertical
+    outline none
     &:disabled
       background-color #f1f1f1
 
@@ -58,7 +78,25 @@ $langSelectWideWidth = 150px
     background-image url(flag-default.svg)
 
   &.has-language-name
+    min-width 350px
+
     .Select
       width $langSelectWideWidth !important
     input
       width "calc(100% - %s)" % $langSelectWideWidth
+
+  &.uses-textarea
+    min-width 350px
+
+    .Select
+      display inline-block
+      width 100% !important
+      margin 0
+      float left
+      .Select-control
+        height 35px
+        box-shadow none
+        border none
+        border-radius $borderRadius $borderRadius 0 0
+      .Select-value
+        border-right none
