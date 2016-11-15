@@ -17,12 +17,48 @@ pre {
 }
 
 #demo {
-  padding: 250px 0;
+  padding: 50px 0;
+  background: #f9f4ee;
+  margin: 50px 0;
+  box-shadow: #4a4a4a 0 0 10px -2px
+}
+
+#demo div.line {
+  margin: 0 auto;
+  width: 750px;
+}
+
+#demo h2 {
+  margin: 10px;
+  color: #4a4a4a;
 }
 
 #demo .TranslatableInput {
+  width: 720px;
+  margin: 10px;
+}
+
+#demo .TranslatableInput.inline {
+  display: inline-block;
   width: 350px;
-  margin: 0 auto;
+}
+
+#demo .TranslatableInput textarea {
+  min-height: 200px;
+  font-size: .8em;
+}
+
+#demo .TranslatableInput input {
+  font-size: .8em;
+}
+
+#demo label {
+  font-size: .8em;
+  width: calc(50% - 20px);
+  display: inline-block;
+  margin: 0 10px;
+  font-weight: bold;
+  color: #4a4a4a;
 }
 
 div.desc {
@@ -33,6 +69,10 @@ div.desc h1 {
   text-align: center;
   font-family: monospace;
   font-size: 3em;
+}
+div.desc h2 {
+  text-align: center;
+  font-family: monospace;
 }
 div.desc h3 {
   text-align: center;
@@ -56,42 +96,4 @@ div.desc p code {
   background: #f0f0f0;
   padding: 2px 5px;
   margin: 0 3px;
-}
-
-div.shade {
-  height: 60px;
-  position: relative;
-  transition: .3s background-color;
-}
-span.color-hash {
-  visibility: hidden;
-  line-height: 60px;
-  position: absolute;
-  left: 10px;
-}
-div.shade:hover span.color-hash {
-  visibility: visible;
-}
-
-div.badges {
-  width: 900px;
-  margin: 20px auto 50px auto;
-}
-
-div.badge {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  line-height: 100px;
-  height: 100px;
-  width: 100px;
-  margin: 0 98px;
-  border-radius: 50%;
-  font-size: 1.6em;
-  font-weight: bolder;
-  transition: transform .1s;
-}
-
-div.badge:hover {
-    transform: scale(1.2);
 }
