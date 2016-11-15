@@ -14,24 +14,27 @@ $ npm install --save react-translatable-input
 
 ![react-translatable-input screenshot](examples/screen.png)
 
+
 ## Options
 
-No time to write the docs yet. So here's the _propTypes_ object instead:
+| Prop | Type | Description | Default |
+|------|------|-------------|---------|
+| **lang** | React.PropTypes.string.isRequired | The current editing language | - |
+| **values** | React.PropTypes.object.isRequired | The object containing the translated strings | - |
+| textarea | React.PropTypes.bool | Use a textarea for a multi-line input? | false |
+| placeholder | React.PropTypes.string | The placeholder to show when the input field is empty | - |
+| classes | React.PropTypes.string | Additional HTML classes to pass to the component | - |
+| disabled | React.PropTypes.bool | Is the component disabled? | false |
+| showLanguageName | React.PropTypes.bool | Show the language name label next to the flag? | false |
+| langTranslator | React.PropTypes.func | Used to translate iso langage codes to language names  when `showLanguageName` is true | - |
 
-```js
-TranslatableInput.propTypes = {
-  lang: PropTypes.string.isRequired,    // The current editing language
-  values: PropTypes.object.isRequired,  // The object containing the translated strings
+## Callbacks
 
-  onLanguageChange: PropTypes.func,     // Callback on language selection
-  onValueChange: PropTypes.func,        // Callback on text entered
-  onKeyDown: PropTypes.func,            // Callback on keydown when text input is focused
-
-  placeholder: PropTypes.string,        // The placeholder to show when the input field is empty
-  classes: PropTypes.string,            // Additional HTML classes to pass to the component
-  disabled: PropTypes.bool              // Is the component disabled?
-};
-```
+| Prop | Type | Syntax | Description |
+|------|------|--------|-------------|
+| onLanguageChange| React.PropTypes.func | function(selectedLanguage) {} | Callback on language selection |
+| onValueChange| React.PropTypes.func | function(newValue, editingLanguage) {} | Callback on text entered |
+| onKeyDown| React.PropTypes.func | function(event) {} | Callback on keydown when text input is focused |
 
 ## Build it yourself
 
