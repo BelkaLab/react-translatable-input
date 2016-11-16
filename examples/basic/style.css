@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, p {
+    color: #212121;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.4em;
+}
+
+pre {
+  font-size: 18px;
+}
+
+#demo {
+  padding: 50px 0;
+  background: #f9f4ee;
+  margin: 50px 0;
+  box-shadow: #4a4a4a 0 0 10px -2px
+}
+
+#demo div.line {
+  margin: 0 auto;
+  width: 750px;
+}
+
+#demo h2 {
+  margin: 10px;
+  color: #4a4a4a;
+}
+
+#demo .TranslatableInput {
+  width: 720px;
+  margin: 10px;
+}
+
+#demo .TranslatableInput.inline {
+  display: inline-block;
+  width: 350px;
+}
+
+#demo .TranslatableInput textarea {
+  min-height: 200px;
+  font-size: .8em;
+}
+
+#demo .TranslatableInput input {
+  font-size: .8em;
+}
+
+#demo label {
+  font-size: .8em;
+  width: calc(50% - 20px);
+  display: inline-block;
+  margin: 0 10px;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+div.desc {
+  width: 950px;
+  margin: 0 auto;
+}
+div.desc h1 {
+  text-align: center;
+  font-family: monospace;
+  font-size: 3em;
+}
+div.desc h2 {
+  text-align: center;
+  font-family: monospace;
+}
+div.desc h3 {
+  text-align: center;
+  color: #6d6d6d
+}
+div.desc h4 {
+  text-align: center;
+  color: #404040;
+  margin: 50px 0;
+  border-top: 3px dashed rgba(178, 9, 9, .7);
+  border-bottom: 3px dashed rgba(178, 9, 9, .7);
+  padding: 50px;
+}
+div.desc h4 a {
+  color: #B10909;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+div.desc p code {
+  background: #f0f0f0;
+  padding: 2px 5px;
+  margin: 0 3px;
+}
