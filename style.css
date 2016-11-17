@@ -91,6 +91,14 @@ div.desc h4 a {
   font-weight: bolder;
   text-decoration: none;
 }
+div.desc h4 iframe {
+  margin: 30px auto 0;
+  display: block;
+}
+div.desc iframe {
+  margin: 0 auto;
+  display: block;
+}
 
 div.desc p code {
   background: #f0f0f0;
