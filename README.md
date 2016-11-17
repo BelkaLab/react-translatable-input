@@ -9,8 +9,8 @@ A [ReactJS](http://facebook.github.io/react/) input component that manages multi
 $ npm install --save react-translatable-input
 ```
 
-<!-- # Demo
-**[http://belkalab.github.io/react-translatable-input/](http://belkalab.github.io/react-translatable-input)** -->
+## Demo
+**[http://belkalab.github.io/react-translatable-input/](http://belkalab.github.io/react-translatable-input)**
 
 ![react-translatable-input screenshot](examples/screen.png)
 
