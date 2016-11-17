@@ -1,13 +1,13 @@
 {
   "name": "react-translatable-input",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A ReactJS input component that manages multiple languages",
   "main": "lib/TranslatableInput.js",
   "style": "dist/react-translatable-input.min.css",
   "scripts": {
     "clean": "rm -rf lib/ dist/",
     "build-all": "npm run build-style && npm run build-lib && npm run build-dist",
-    "build-lib":  "cross-env NODE_ENV=development babel src --out-dir lib",
+    "build-lib": "cross-env NODE_ENV=development babel src --out-dir lib",
     "build-dist": "cross-env NODE_ENV=production babel src/TranslatableInput.js > dist/react-translatable-input.min.js",
     "build-style": "mkdir -p dist; stylus --inline --print src/styles/react-translatable-input.styl > dist/react-translatable-input.css && stylus --inline --print --compress src/styles/react-translatable-input.styl > dist/react-translatable-input.min.css",
     "lint": "eslint src",
