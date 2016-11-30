@@ -55,10 +55,9 @@ class Demo extends React.Component {
     const state = this.state[stateName];
     state[lang] = value;
 
-    const partialState = {};
-    partialState[stateName] = state;
-
-    this.setState(partialState);
+    this.setState({
+      [stateName]: state
+    });
   }
 
   handleLanguageChange(editingLanguage) {

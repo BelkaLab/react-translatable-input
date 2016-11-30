@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import React, { Component, PropTypes } from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
@@ -40,7 +41,7 @@ class TranslatableInput extends Component {
     const { onLanguageChange } = this.props;
 
     if (typeof (onLanguageChange) === 'function') {
-      onLanguageChange(lang);
+      onLanguageChange(lang.value);
     }
   }
 
@@ -140,17 +141,16 @@ class TranslatableInput extends Component {
               onFocus={() => this.focused(true)}
               onBlur={() => this.focused(false)}
             />
-          :
-            <input
-              type="text"
-              value={values[lang]}
-              onChange={e => this.changeValue(e.target.value)}
-              onKeyDown={e => this.keyPressed(e)}
-              placeholder={this.props.placeholder}
-              disabled={this.props.disabled}
-              onFocus={() => this.focused(true)}
-              onBlur={() => this.focused(false)}
-            />
+          : <input
+            type="text"
+            value={values[lang]}
+            onChange={e => this.changeValue(e.target.value)}
+            onKeyDown={e => this.keyPressed(e)}
+            placeholder={this.props.placeholder}
+            disabled={this.props.disabled}
+            onFocus={() => this.focused(true)}
+            onBlur={() => this.focused(false)}
+          />
         }
       </div>
     );

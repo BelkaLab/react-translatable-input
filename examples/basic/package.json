@@ -10,8 +10,8 @@
   "author": "Belka <giovanni@belka.us> (http://belka.us)",
   "license": "MIT",
   "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
     "react-translatable-input": "../..",
     "language-cultures": "^0.1.1"
   },

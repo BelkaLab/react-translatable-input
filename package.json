@@ -34,9 +34,11 @@
   "homepage": "https://github.com/BelkaLab/react-translatable-input#readme",
   "dependencies": {
     "flag-icon-css": "^2.4.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-select": "^0.9.1"
+    "react-select": "^1.0.0-rc"
+  },
+  "peerDependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
