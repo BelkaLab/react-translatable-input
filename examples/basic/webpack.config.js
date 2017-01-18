@@ -28,6 +28,10 @@ module.exports = {
         test: /\.svg$/,
         loader: 'url?limit=8192&name=images/[name].[ext]'
       },
+      {
+        test: /\.json$/,
+        loader: "json-loader"
+      }
     ]
   },
   plugins: [
