@@ -1,21 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'react-translatable-input/dist/react-translatable-input.css';
+import 'react-translatable-input/dist/react-translatable-input-subtag-lang-flags.css';
 import TranslatableInput from 'react-translatable-input';
 
-import 'react-translatable-input/dist/react-translatable-input.css';
-
-import { getLanguageName } from 'language-cultures';
+import tags from 'language-tags';
 
 // an helper function to translate language codes to language name.
 // in real life, this would be managed by an i18n manager such as polyglot.js
-function translateLanguage(lang) {
-  if (lang === 'default') {
+function translateLanguage(tagStr) {
+  let langDesc;
+
+  if (tagStr === 'default') {
     return 'Default';
   }
-  return getLanguageName(lang);
+
+  const tag = tags(tagStr);
+  const subtagLang = tag.language();
+
+  if (subtagLang !== null) {
+    langDesc = subtagLang.descriptions()[0];
+    const subtagRegion = tag.region();
+
+    if (subtagRegion !== null && subtagRegion !== undefined) {
+      langDesc = `${langDesc} - ${subtagRegion.descriptions()[0]}`;
+    }
+  } else {
+    langDesc = tag;
+  }
+
+  return langDesc;
 }
 
-const demoLanguages = ['it-IT', 'en-US', 'de-DE'];
+const demoLanguages = ['it', 'en', 'en-US', 'de'];
 
 class Demo extends React.Component {
   constructor(props) {
@@ -26,7 +43,7 @@ class Demo extends React.Component {
       default: 'Default post title'
     };
     demoLanguages.forEach((c) => {
-      title[c] = `Post title in ${getLanguageName(c)}`;
+      title[c] = `Post title in ${translateLanguage(c)}`;
     });
 
     const description = {
@@ -40,14 +57,14 @@ class Demo extends React.Component {
       default: 'Default field is used when the user language is not supported/can\'t be detected'
     };
     demoLanguages.forEach((c) => {
-      content[c] = `Post content in ${getLanguageName(c)}`;
+      content[c] = `Post content in ${translateLanguage(c)}`;
     });
 
     this.state = {
       title,
       description,
       content,
-      editingLanguage: 'it-IT'
+      editingLanguage: 'it'
     };
   }
 

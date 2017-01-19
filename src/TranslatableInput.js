@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import 'flag-icon-css/css/flag-icon.min.css';
+import tags from 'language-tags';
 
 const propTypes = {
   lang: PropTypes.string.isRequired,    // The current editing language
@@ -61,8 +62,10 @@ class TranslatableInput extends Component {
 
   renderFlag(option) {
     const { showLanguageName, langTranslator } = this.props;
+    const tag = tags(option.value);
+    let langClasses = '';
 
-    if (!option.value.match(/[a-z]{2}-[a-z]{2}/i)) {
+    if (tag.valid() === false) {
       // the default language
       const defaultName = typeof (langTranslator) === 'function' ? langTranslator('default') : 'default';
       return (
@@ -77,10 +80,28 @@ class TranslatableInput extends Component {
     }
 
     const langName = typeof (langTranslator) === 'function' ? langTranslator(option.value) : option.value;
+    let regCode = 'default';
+    let langCode;
+
+    if (typeof tag.find('region') === 'object') {
+      regCode = tag.find('region').data.subtag;
+    } else if (typeof tag.find('language') === 'object') {
+      regCode = tag.find('language').data.subtag;
+      langCode = tag.find('language').data.subtag;
+    } else {
+      langCode = 'default';
+    }
+
+    if (langCode !== undefined) {
+      langClasses = `flag-icon-lang-default flag-icon-lang-${langCode} `;
+    }
+
+    langClasses += `flag-icon flag-icon-${regCode}`;
+
     return (
       <div>
         <div
-          className={`flag-icon flag-icon-${option.value.split('-')[1].toLowerCase()}`}
+          className={langClasses}
           title={option.value}
         />
         { showLanguageName ? <div className="language-name" title={langName}>{langName}</div> : null }
@@ -93,8 +114,8 @@ class TranslatableInput extends Component {
     const { isFocused } = this.state;
 
     const langOptions = Object.keys(values)
-        .filter(l => l.match(/^[a-z]{2,3}-[a-z]{2}$/i))
-        .map(l => ({ label: l, value: l }));
+                              .filter(l => tags(l).valid())
+                              .map(tag => ({ label: tag, value: tag }));
 
     // put default language on top of the list, if present
     if (values.hasOwnProperty('default')) {
@@ -102,15 +123,19 @@ class TranslatableInput extends Component {
     }
 
     let componentClasses = 'TranslatableInput';
+
     if (isFocused) {
       componentClasses += ' is-focused';
     }
+
     if (showLanguageName) {
       componentClasses += ' has-language-name';
     }
+
     if (textarea) {
       componentClasses += ' uses-textarea';
     }
+
     if (typeof (classes) === 'string') {
       componentClasses += ` ${classes}`;
     }

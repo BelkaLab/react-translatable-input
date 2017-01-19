@@ -30,19 +30,19 @@ $ npm install --save react-translatable-input
 
 #### The `values` object
 
-The most important prop to be passed is the `values` object, which must be a plain JS Object in the form `{ langCode: langValue }`. For example:
+The most important prop to be passed is the `values` object, which must be a plain JS Object in the form `{ langTag: langValue }`. For example:
 
 ```js
 values = {
-  'it-IT': 'Italian input',
+  'it': 'Italian input',
   'en-US': 'English (United States) input',
-  'de-DE': 'German input'
+  'en': 'English input',
+  'de': 'German input'
 };
 ```
 
-All the language codes must be in the form `/[a-z]{2,3}-[A-Z]{2}/`, so language name with the relative [*language culture*](https://github.com/BelkaLab/language-cultures) (aka country code). Differently encoded language names will be filtered out and not shown in the component.
-
-Only exception to this rule is the `default` language, intended to be used as a general fallback language. If the `default` language is present, it will always be put on top of the available languages.
+All the language tags must be [*BCP 47*](https://www.w3.org/International/articles/language-tags/index.en) compliant. Differently encoded language names will be filtered out and not shown in the component.
+The only exception to this rule is the `default` language, intended to be used as a general fallback language. If the `default` language is present, it will always be put on top of the available languages.
 
 ## Callbacks
 
@@ -62,6 +62,7 @@ $ npm install
 
 ## Contributors
 [Giovanni Frigo](https://github.com/giovannifrigo), Developer @[Belka](https://github.com/BelkaLab)
+[Matteo Bertamini](https://github.com/bertuz), Developer @[Belka](https://github.com/BelkaLab)
 
 ## License
 react-translatable-input is Copyright (c) 2016 Belka, srl. It is free software, and may be redistributed under the terms specified in the LICENSE file.  
