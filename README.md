@@ -62,6 +62,7 @@ $ npm install
 
 ## Contributors
 [Giovanni Frigo](https://github.com/giovannifrigo), Developer @[Belka](https://github.com/BelkaLab)
+
 [Matteo Bertamini](https://github.com/bertuz), Developer @[Belka](https://github.com/BelkaLab)
 
 ## License
