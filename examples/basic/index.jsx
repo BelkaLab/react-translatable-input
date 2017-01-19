@@ -23,7 +23,7 @@ function translateLanguage(tagStr) {
     const subtagRegion = tag.region();
 
     if (subtagRegion !== null && subtagRegion !== undefined) {
-        langDesc = `${langDesc} - ${subtagRegion.descriptions()[0]}`;
+      langDesc = `${langDesc} - ${subtagRegion.descriptions()[0]}`;
     }
   } else {
     langDesc = tag;
@@ -43,7 +43,7 @@ class Demo extends React.Component {
       default: 'Default post title'
     };
     demoLanguages.forEach((c) => {
-        title[c] = `Post title in ${translateLanguage(c)}`;
+      title[c] = `Post title in ${translateLanguage(c)}`;
     });
 
     const description = {

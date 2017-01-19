@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "json-loader": "^0.5.4",
+    "language-tags": "^1.0.5",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-translatable-input": "../.."
