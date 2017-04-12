@@ -1,6 +1,6 @@
 {
   "name": "react-translatable-input",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A ReactJS input component that manages multiple languages",
   "main": "lib/TranslatableInput.js",
   "style": "dist/react-translatable-input.min.css",
